@@ -9,7 +9,7 @@ fi
 # Parse the environment variables from .env file, ignoring the comments
 export $(cat .env | grep -v ^# | xargs)
 
-curl --cacert ${ES_CA_CERTS} --user ${ES_USERNAME}:${ES_PASSWORD} \
+curl \
 -XPUT "${ES_URL}_ingest/pipeline/convert_boolean" \
 -H 'Content-Type: application/json' -d'
 {
@@ -56,7 +56,7 @@ for YEAR in {2018..2024}; do
 EOF
 )
 
-    curl --cacert ${ES_CA_CERTS} --user ${ES_USERNAME}:${ES_PASSWORD} \
+    curl \
     -XPOST "${ES_URL}_reindex?pretty" \
     -H 'Content-Type: application/json' -d "$JSON_PAYLOAD"
 
