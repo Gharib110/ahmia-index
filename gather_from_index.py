@@ -38,9 +38,7 @@ def main():
     """
     # Use the imported settings
     es = Elasticsearch(
-        [settings.ES_HOST],
-        ca_certs=settings.ES_CA_CERTS,
-        basic_auth=(settings.ES_USERNAME, settings.ES_PASSWORD)
+        [settings.ES_HOST]
     )
 
     domain_list = []
