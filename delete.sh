@@ -16,7 +16,7 @@ for YEAR in {2018..2030}; do
     echo ""
     sleep 1
     
-    curl --cacert ${ES_CA_CERTS} --user ${ES_USERNAME}:${ES_PASSWORD} \
+    curl  \
     -XDELETE "${ES_URL}${INDEX_NAME}"
 
     echo ""
